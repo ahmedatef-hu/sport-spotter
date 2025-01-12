@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportSpotter - إدارة لاعبي الأكاديميات</title>
+    <link rel="stylesheet" href="aca.css">
+    <script>
+        let players = [];
+
+        function addPlayer(event) {
+            event.preventDefault();
+
+            const playerName = document.getElementById("playerName").value;
+            const playerAge = document.getElementById("playerAge").value;
+            const playerPosition = document.getElementById("playerPosition").value;
+            const playerSkills = document.getElementById("playerSkills").value;
+            const playerImage = document.getElementById("playerImage").files[0]; // الحصول على الصورة
+
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                const newPlayer = {
+                    name: playerName,
+                    age: playerAge,
+                    position: playerPosition,
+                    skills: playerSkills,
+                    image: reader.result,
+                };
+
+                players.push(newPlayer);
+                displayPlayers();
+                alert("تم إضافة اللاعب بنجاح!");
+            }
+
+            if (playerImage) {
+                reader.readAsDataURL(playerImage);
+            } else {
+                alert("يرجى اختيار صورة!");
+            }
+        }
+
+        function displayPlayers() {
+            const playerList = document.getElementById("playerList");
+            playerList.innerHTML = ""; 
+            players.forEach((player, index) => {
+                const playerItem = `
+                    <div class="player-card">
+                        <img src="${player.image}" alt="صورة اللاعب">
+                        <h3>${player.name}</h3>
+                        <p>العمر: ${player.age}</p>
+                        <p>المركز: ${player.position}</p>
+                        <p>المهارات: ${player.skills}</p>
+                        <button onclick="removePlayer(${index})">حذف</button>
+                    </div>
+                `;
+                playerList.innerHTML += playerItem;
+            });
+        }
+        function removePlayer(index) {
+            players.splice(index, 1); 
+            displayPlayers();
+            alert("تم حذف اللاعب!");
+        }
+    </script>
+</head>
+<body>
+    <h1>SportSpotter</h1>
+    <form onsubmit="addPlayer(event)">
+        <label for="playerName">اسم اللاعب:</label>
+        <input type="text" id="playerName" name="playerName" required>
+    
+        <label for="playerAge">العمر:</label>
+        <input type="number" id="playerAge" name="playerAge" required>
+    
+        <label for="playerPosition">المركز:</label>
+        <input type="text" id="playerPosition" name="playerPosition" required>
+    
+        <label for="playerSkills">المهارات:</label>
+        <textarea id="playerSkills" name="playerSkills" required></textarea>
+    
+        <label for="playerImage">صورة اللاعب:</label>
+        <input type="file" id="playerImage" name="playerImage" accept="image/*" required>
+    
+        <button type="submit">إضافة اللاعب</button>
+    </form>
+
+    <h2>قائمة اللاعبين:</h2>
+    <div id="playerList" class="player-list"></div>
+    <form action="t.html" method="get">
+        <button type="submit">طلبات التعاقد</button>
+      </form>
+</body>
+</html>

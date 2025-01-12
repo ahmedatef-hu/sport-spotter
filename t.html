@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="t.css">
+        <title>SportSpotter - طلبات التعاقد</title>
+    <script>
+        const contractRequests = [
+            {
+                playerName: "احمد عاطف",
+                club: "الأهلي",
+                contactNumber: "0123456789",
+                date: "2025-02-12",
+                details: "مهتم بشراء اللاعب ويرجي الحضور بالميعاد المحدد."
+            },
+            {
+                playerName: "حمزه مصطفي",
+                club: "الزمالك",
+                contactNumber: "01122334455",
+                date: "2025-02-10",
+                details: "النادي يريد التعاقد لمدة 3 سنوات."
+            },
+            {
+                playerName: "اياد هاني",
+                club: "بيراميدز",
+                contactNumber: "01098765432",
+                date: "2025-02-08",
+                details: "عرض شامل سكن ومميزات إضافية."
+            }
+        ];
+        function displayContractRequests() {
+            const requestList = document.getElementById("contractRequestList");
+            requestList.innerHTML = ""; 
+
+            contractRequests.forEach(request => {
+                const requestItem = `
+                    <div class="contract-card">
+                        <h3>اللاعب: ${request.playerName}</h3>
+                        <p>النادي المهتم: ${request.club}</p>
+                        <p>رقم التواصل: ${request.contactNumber}</p>
+                        <p>تاريخ الاختبارات: ${request.date}</p>
+                        <p>التفاصيل: ${request.details}</p>
+                    </div>
+                `;
+                requestList.innerHTML += requestItem;
+            });
+        }
+    </script>
+   
+</head>
+<body>
+    <h1>SportSpotter - طلبات التعاقد</h1>
+    <a href="#contractRequests" class="btn" onclick="displayContractRequests()">عرض طلبات التعاقد</a>
+    <div id="contractRequests">
+        <h2 style="text-align: center; margin-top: 20px;">طلبات التعاقد</h2>
+        <div id="contractRequestList"></div>
+    </div>
+</body>
+</html>

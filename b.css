@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #000b7c;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 60%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #c70000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d90404;
+}
+  justify-content: space-between; 
+ 
+body, html {
+  height: 100%; 
+  margin: 0; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  font-family: Arial, sans-serif;
+}
+
+.players {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 90%;
+
+
+.player-card {
+  background-color: white;
+  border-radius: 15px; 
+  width: 45%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out; 
+  text-align: center;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.player-card:hover {
+  transform: translateY(-10px);
+}
+
+.player-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover; 
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+
+.player-info h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.player-info p {
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0;
+}
+}
+
+.filter {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.filter label {
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+.filter select {
+  padding: 8px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

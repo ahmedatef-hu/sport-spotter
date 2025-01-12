@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportSpotter - تعاقد مع لاعبين</title>
+    <link rel="stylesheet" href="en.css">   
+    <script>
+        function openContactForm() {
+            document.getElementById("contactForm").style.display = "block";
+        }
+
+       
+        function closeContactForm() {
+            document.getElementById("contactForm").style.display = "none";
+        }
+
+        
+        function submitForm(event) {
+            event.preventDefault(); 
+            alert("تم إرسال الطلب بنجاح!"); 
+            closeContactForm(); 
+        }
+    </script>
+</head>
+<body>
+    <button onclick="openContactForm()">تعاقد مع اللاعب</button>
+
+    <div id="contactForm" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeContactForm()">&times;</span>
+            <h2>تحديد موعد للاختبارات</h2>
+            <p id="playerName">اسم اللاعب هنا</p>
+            <form onsubmit="submitForm(event)">
+                <label for="date">اختر تاريخ الاختبار:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="time">اختر وقت الاختبار:</label>
+                <input type="time" id="time" name="time" required>
+                
+                <label for="contact">رقم للتواصل:</label>
+                <input type="tel" id="contact" name="contact" placeholder="أدخل رقمك" required>
+                
+                <button type="submit">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
